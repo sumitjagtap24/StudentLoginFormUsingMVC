@@ -1,0 +1,23 @@
+﻿CREATE TABLE Students (
+    StudentID INT PRIMARY KEY IDENTITY(1,1),
+    Name NVARCHAR(50) NOT NULL,
+    DOB DATE NOT NULL,
+    Email NVARCHAR(100) NOT NULL,
+    Gender NVARCHAR(10) NOT NULL,
+    Lang NVARCHAR(50) NOT NULL
+);
+
+select * from Students
+
+
+CREATE PROCEDURE InsertStudent
+    @Name NVARCHAR(50),
+    @DOB DATE,
+    @Email NVARCHAR(100),
+    @Gender NVARCHAR(10),
+    @Lang NVARCHAR(50)
+AS
+BEGIN
+    INSERT INTO Students (Name, DOB, Email, Gender, Lang)
+    VALUES (@Name, @DOB, @Email, @Gender, @Lang)
+END
